@@ -4,7 +4,7 @@ Site vitrine moderne, fluide, interactif et responsive pour **MACODEL SERVICES s
 
 ---
 
-## 🚀 Fonctionnalités Clés
+## Fonctionnalités Clés
 
 1. **Calculateur d'Impact Écologique** :
    - Évaluez en temps réel les bénéfices environnementaux (CO₂ évité, pétrole économisé, litres d'eau sauvés) selon le type de déchet (Plastique, Carton, Verre, Organique, Métal) et le volume mensuel estimé.
@@ -26,7 +26,7 @@ Site vitrine moderne, fluide, interactif et responsive pour **MACODEL SERVICES s
 
 ---
 
-## 🛠️ Technologies Utilisées
+## Technologies Utilisées
 
 - **Structure** : HTML5 sémantique avec balises meta SEO optimisées.
 - **Stylisation** : Vanilla CSS & Bootstrap 5 (via CDN).
@@ -37,7 +37,7 @@ Site vitrine moderne, fluide, interactif et responsive pour **MACODEL SERVICES s
 
 ---
 
-## 💻 Installation Locale
+## Installation Locale
 
 Pour faire fonctionner le site localement sur votre machine :
 
@@ -53,7 +53,7 @@ Pour faire fonctionner le site localement sur votre machine :
 
 ---
 
-## 📦 Déploiement
+## Déploiement
 
 Le site est hébergé en production sur **Vercel** et configuré avec un déploiement continu lié à ce dépôt GitHub.
 
@@ -66,7 +66,7 @@ git push origin main
 
 ---
 
-## 📞 Contact Officiel
+## Contact Officiel
 
 - **Téléphone** : 92 10 38 63 (Lundi au Vendredi, 8h - 18h)
 - **E-mail** : servicesmacodel@gmail.com
