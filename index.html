@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MACODEL SERVICES sarlu | Gestion, Tri & Valorisation Durable des Déchets pour Entreprises</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="MACODEL SERVICES sarlu propose des solutions modernes, fluides et éco-responsables de collecte, tri et valorisation des déchets. Calculez votre impact écologique en temps réel.">
+  <meta name="keywords" content="gestion déchets, recyclage, valorisation, transition écologique, économie circulaire, RSE, tri sélectif, MACODEL SERVICES sarlu">
+  <meta name="author" content="MACODEL SERVICES sarlu">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23059669'/><path d='M30 50 L45 65 L70 35' stroke='white' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+
+  <!-- Bootstrap 5 CSS (via CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <!-- Bootstrap Icons (via CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  
+  <!-- Leaflet CSS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  
+  <!-- Custom Styles CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. HEADER & NAVIGATION -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom" id="main-nav">
+      <div class="container">
+        <a class="navbar-brand" href="#hero">
+          <i class="bi bi-recycle text-primary-custom fs-3"></i>
+          <span>MACODEL</span> SERVICES
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-3">
+            <li class="nav-item">
+              <a class="nav-link active" href="#hero" data-i18n="nav-home">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services" data-i18n="nav-services">Nos Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#impact" data-i18n="nav-impact">Calculateur d'Impact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" data-i18n="nav-about">À Propos</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" data-i18n="nav-contact">Contact</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button class="theme-toggle-btn" id="theme-toggle" aria-label="Changer de thème">
+                <i class="bi bi-moon-fill" id="theme-icon"></i>
+              </button>
+            </li>
+            <li class="nav-item d-flex align-items-center gap-1 ms-1 me-1">
+              <button class="lang-btn active" id="lang-fr" aria-label="Passer en français">FR</button>
+              <span class="text-muted" style="font-size: 0.8rem; opacity: 0.5;">|</span>
+              <button class="lang-btn" id="lang-en" aria-label="Passer en anglais">EN</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <!-- Text Content -->
+          <div class="col-lg-6">
+            <span class="section-tag animate-on-scroll" data-i18n="hero-tag">L'économie circulaire en action</span>
+            <h1 class="hero-title animate-on-scroll delay-100" data-i18n="hero-title">
+              Transformez vos déchets en <span class="text-primary-custom">ressources</span> d'avenir.
+            </h1>
+            <p class="hero-subtitle animate-on-scroll delay-200" data-i18n="hero-subtitle">
+              MACODEL SERVICES sarlu accompagne les entreprises dans leur transition écologique avec des solutions fluides de collecte, de tri intelligent et de valorisation matière. Simplifiez votre gestion des déchets tout en maximisant votre impact positif.
+            </p>
+            <div class="d-flex flex-wrap gap-3 animate-on-scroll delay-300">
+              <a href="#impact" class="btn btn-primary-custom" data-i18n="hero-cta-calc">Estimer mon impact</a>
+              <a href="#services" class="btn btn-secondary-custom" data-i18n="hero-cta-solutions">Découvrir nos solutions</a>
+            </div>
+          </div>
+          
+          <!-- Interactive Visual (SVG Illustration) -->
+          <div class="col-lg-6 animate-on-scroll delay-300">
+            <div class="hero-image-container">
+              <div class="hero-image-backdrop"></div>
+              <!-- Premium custom vector SVG replacing standard images -->
+              <svg class="hero-svg" viewBox="0 0 500 500" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer glowing rings -->
+                <circle cx="250" cy="250" r="210" fill="none" stroke="rgba(5, 150, 105, 0.1)" stroke-width="2" stroke-dasharray="10 15" />
+                <circle cx="250" cy="250" r="170" fill="none" stroke="rgba(5, 150, 105, 0.2)" stroke-width="1.5" />
+                
+                <!-- Rotating circular loops simulating recycling -->
+                <path d="M 250 80 A 170 170 0 0 1 420 250" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round" />
+                <path d="M 250 420 A 170 170 0 0 1 80 250" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" />
+                
+                <!-- Floating eco elements -->
+                <!-- Eco Leaf Left -->
+                <g transform="translate(110, 140) rotate(-15) scale(0.8)">
+                  <rect width="60" height="60" rx="16" fill="white" filter="drop-shadow(0 10px 15px rgba(0,0,0,0.05))"/>
+                  <path d="M 30 15 C 20 25, 15 35, 15 45 C 25 45, 35 40, 45 30 C 35 30, 30 25, 30 15" fill="#059669"/>
+                  <line x1="30" y1="15" x2="25" y2="40" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+                
+                <!-- Chart Info Box Right -->
+                <g transform="translate(330, 280) scale(0.9)">
+                  <rect width="90" height="80" rx="16" fill="white" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.06))"/>
+                  <!-- Mini Bar Chart -->
+                  <rect x="20" y="45" width="10" height="20" rx="3" fill="#0f172a"/>
+                  <rect x="40" y="30" width="10" height="35" rx="3" fill="#059669"/>
+                  <rect x="60" y="15" width="10" height="50" rx="3" fill="#f59e0b"/>
+                </g>
+
+                <!-- Center Concept Globe -->
+                <circle cx="250" cy="250" r="110" fill="#0f172a" filter="drop-shadow(0 20px 40px rgba(15,23,42,0.15))"/>
+                <circle cx="250" cy="250" r="95" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="3" />
+                
+                <!-- Inner Plant / Earth Symbol -->
+                <g transform="translate(210, 205) scale(1.6)">
+                  <!-- Recycle dynamic arrow pattern in white -->
+                  <path d="M 12 6 A 12 12 0 0 1 30 17" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M 32 17 L 27 14 M 32 17 L 30 22" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+                  
+                  <path d="M 30 33 A 12 12 0 0 1 10 28" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M 8 28 L 13 31 M 8 28 L 11 23" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+
+                  <!-- Leaf Stem -->
+                  <path d="M 25 35 C 25 25, 22 17, 16 10 C 24 13, 30 22, 28 32 Z" fill="#059669"/>
+                </g>
+                
+                <!-- Small floaters -->
+                <circle cx="90" cy="360" r="8" fill="#f59e0b" opacity="0.6"/>
+                <circle cx="410" cy="110" r="12" fill="#059669" opacity="0.4"/>
+                <circle cx="250" cy="40" r="6" fill="#0f172a" opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SERVICES SECTION -->
+    <section class="services-section py-5" id="services">
+      <div class="container py-5">
+        <div class="text-center max-width-600 mx-auto mb-5">
+          <span class="section-tag animate-on-scroll" data-i18n="services-tag">Expertises RSE & Logistique</span>
+          <h2 class="section-title animate-on-scroll delay-100" data-i18n="services-title">Des solutions sur mesure pour chaque flux de déchets</h2>
+          <p class="text-muted animate-on-scroll delay-200" data-i18n="services-desc">
+            Nous intégrons la simplicité opérationnelle au cœur de votre gestion environnementale, en assurant une traçabilité totale et le respect des normes les plus strictes.
+          </p>
+        </div>
+        
+        <div class="row g-4">
+          <!-- Service 1 -->
+          <div class="col-md-4 animate-on-scroll">
+            <div class="service-card">
+              <div class="service-icon-box">
+                <i class="bi bi-truck"></i>
+              </div>
+              <h3 class="service-title" data-i18n="service-1-title">Collecte Intelligente & Tri</h3>
+              <p class="text-muted" data-i18n="service-1-desc">
+                Planification optimisée des tournées, mise à disposition de contenants connectés adaptés à vos volumes, et tri sélectif certifié directement à la source.
+              </p>
+              <a href="#contact" class="service-link">
+                <span data-i18n="service-more">En savoir plus</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Service 2 -->
+          <div class="col-md-4 animate-on-scroll delay-100">
+            <div class="service-card">
+              <div class="service-icon-box">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h3 class="service-title" data-i18n="service-2-title">Valorisation Matière & Remploi</h3>
+              <p class="text-muted" data-i18n="service-2-desc">
+                Transformation maximale de vos déchets en matières premières secondaires de haute qualité. Réinsertion dans le cycle industriel local (économie circulaire).
+              </p>
+              <a href="#contact" class="service-link">
+                <span data-i18n="service-more">En savoir plus</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Service 3 -->
+          <div class="col-md-4 animate-on-scroll delay-200">
+            <div class="service-card">
+              <div class="service-icon-box">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3 class="service-title" data-i18n="service-3-title">Conseil RSE & Rapports Réglementaires</h3>
+              <p class="text-muted" data-i18n="service-3-desc">
+                Accompagnement dans votre conformité réglementaire (décret 5 flux/7 flux), audits de tri, reporting environnemental mensuel et clés de performance clés (KPI).
+              </p>
+              <a href="#contact" class="service-link">
+                <span data-i18n="service-more">En savoir plus</span> <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL VALORIZATION SECTION (TIMELINE) -->
+    <section class="py-5 bg-light" id="valorisation">
+      <div class="container py-5">
+        <div class="text-center max-width-600 mx-auto mb-5">
+          <span class="section-tag animate-on-scroll" data-i18n="val-tag">Économie Circulaire Locale</span>
+          <h2 class="section-title animate-on-scroll delay-100" data-i18n="val-title">Le parcours de vos déchets à Kara</h2>
+          <p class="text-muted animate-on-scroll delay-200" data-i18n="val-desc">
+            Découvrez comment vos déchets triés sont transformés localement en opportunités économiques et environnementales au sein de notre communauté.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Item 1 -->
+          <div class="timeline-item left-timeline animate-on-scroll">
+            <div class="timeline-content">
+              <span class="timeline-number">01</span>
+              <h3 data-i18n="val-1-title">Collecte de proximité</h3>
+              <p class="text-muted mb-0" data-i18n="val-1-desc">
+                Nos équipes interviennent dans plusieurs quartiers de Kara (Tchitchinouda, Lama, Dongoyo, Grand Marché...) pour collecter vos cartons, plastiques et métaux directement sur votre site.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item right-timeline animate-on-scroll delay-100">
+            <div class="timeline-content">
+              <span class="timeline-number">02</span>
+              <h3 data-i18n="val-2-title">Tri & Compactage</h3>
+              <p class="text-muted mb-0" data-i18n="val-2-desc">
+                Les déchets sont acheminés vers notre centre de tri à Tchitchinouda, où ils sont soigneusement triés par type de plastique (PET, PEHD) ou papier, puis compactés en balles prêtes pour la valorisation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item left-timeline animate-on-scroll delay-200">
+            <div class="timeline-content">
+              <span class="timeline-number">03</span>
+              <h3 data-i18n="val-3-title">Transformation Artisanale</h3>
+              <p class="text-muted mb-0" data-i18n="val-3-desc">
+                En partenariat avec des artisans et des initiatives togolaises, le plastique broyé est chauffé et moulé pour fabriquer des pavés écologiques extrêmement résistants, idéaux pour les aménagements de chaussées.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-item right-timeline animate-on-scroll delay-300">
+            <div class="timeline-content">
+              <span class="timeline-number">04</span>
+              <h3 data-i18n="val-4-title">Remploi local & Impact</h3>
+              <p class="text-muted mb-0" data-i18n="val-4-desc">
+                Ces pavés et matières premières secondaires sont réinjectés dans des projets d'aménagement urbain ou le bâtiment à Kara, complétant ainsi la boucle vertueuse de l'économie circulaire.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ECOLOGICAL CALCULATOR SECTION -->
+    <section class="py-5" id="impact">
+      <div class="container py-5">
+        <div class="calculator-card animate-on-scroll">
+          <div class="row g-5 align-items-center">
+            <!-- Form Inputs -->
+            <div class="col-lg-6 calculator-form">
+              <span class="section-tag text-uppercase text-primary-custom" data-i18n="calc-tag">Calculateur d'Impact</span>
+              <h2 class="mb-3" data-i18n="calc-title">Mesurez la valeur de votre geste écologique</h2>
+              <p class="text-white-50 mb-4" data-i18n="calc-desc">
+                Sélectionnez la nature de vos flux de déchets et ajustez la quantité estimée pour visualiser instantanément les bénéfices environnementaux de leur valorisation par MACODEL SERVICES sarlu.
+              </p>
+              
+              <div class="mb-4">
+                <label for="waste-type" class="form-label-custom" data-i18n="calc-type-label">Type de déchet</label>
+                <select id="waste-type" class="form-select calc-select">
+                  <option value="cardboard" data-i18n="opt-cardboard">Papier / Carton</option>
+                  <option value="plastic" data-i18n="opt-plastic">Plastiques & Polymères</option>
+                  <option value="glass" data-i18n="opt-glass">Verre / Silicates</option>
+                  <option value="organic" data-i18n="opt-organic">Déchets Organiques (Compost)</option>
+                  <option value="metal" data-i18n="opt-metal">Métaux (Aluminium, Acier)</option>
+                </select>
+              </div>
+              
+              <div class="mb-2">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <label for="waste-weight" class="form-label-custom mb-0" data-i18n="calc-weight-label">Quantité mensuelle</label>
+                  <span class="badge bg-primary-custom fs-6"><span id="waste-weight-val">10</span> Tonnes</span>
+                </div>
+                <input type="range" class="form-range-custom" id="waste-weight" min="1" max="100" step="1" value="10">
+              </div>
+            </div>
+            
+            <!-- Result Displays -->
+            <div class="col-lg-6">
+              <div class="calc-results-box">
+                <h3 class="fs-5 mb-4 text-white-50 text-uppercase letter-spacing-01" data-i18n="calc-results-title">Bénéfices Environnementaux Estimés</h3>
+                
+                <div class="calc-result-item">
+                  <div class="calc-result-icon">
+                    <i class="bi bi-cloud-arrow-down"></i>
+                  </div>
+                  <div>
+                    <div class="calc-result-val" id="result-co2">0 kg</div>
+                    <div class="calc-result-label" data-i18n="calc-co2-label">Émissions de CO₂ Évitées</div>
+                  </div>
+                </div>
+                
+                <div class="calc-result-item">
+                  <div class="calc-result-icon">
+                    <i class="bi bi-tree"></i>
+                  </div>
+                  <div>
+                    <div class="calc-result-val" id="result-resource">0</div>
+                    <div class="calc-result-label" id="result-resource-label">Arbres Sauvés</div>
+                  </div>
+                </div>
+                
+                <div class="calc-result-item">
+                  <div class="calc-result-icon">
+                    <i class="bi bi-droplet"></i>
+                  </div>
+                  <div>
+                    <div class="calc-result-val" id="result-energy">0</div>
+                    <div class="calc-result-label" id="result-energy-label">Litres d'Eau Économisés</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. KEY FIGURES / STATS SECTION -->
+    <section class="stats-section" id="stats">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Stat 1 -->
+          <div class="col-6 col-lg-3">
+            <div class="stat-item animate-on-scroll">
+              <div class="stat-number" data-target="94" data-suffix="%">0%</div>
+              <div class="stat-label" data-i18n="stat-1-label">Valorisation</div>
+              <div class="stat-desc" data-i18n="stat-1-desc">Taux moyen de valorisation matière</div>
+            </div>
+          </div>
+          
+          <!-- Stat 2 -->
+          <div class="col-6 col-lg-3">
+            <div class="stat-item animate-on-scroll delay-100">
+              <div class="stat-number" data-target="15800" data-suffix="">0</div>
+              <div class="stat-label" data-i18n="stat-2-label">Tonnes triées</div>
+              <div class="stat-desc" data-i18n="stat-2-desc">Valorisation annuelle globale</div>
+            </div>
+          </div>
+          
+          <!-- Stat 3 -->
+          <div class="col-6 col-lg-3">
+            <div class="stat-item animate-on-scroll delay-200">
+              <div class="stat-number" data-target="380" data-suffix="+">0</div>
+              <div class="stat-label" data-i18n="stat-3-label">Entreprises</div>
+              <div class="stat-desc" data-i18n="stat-3-desc">Partenaires engagés avec nous</div>
+            </div>
+          </div>
+          
+          <!-- Stat 4 -->
+          <div class="col-6 col-lg-3">
+            <div class="stat-item animate-on-scroll delay-300">
+              <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+              <div class="stat-label" data-i18n="stat-4-label">Réactivité</div>
+              <div class="stat-desc" data-i18n="stat-4-desc">Assistance et logistique continues</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ABOUT US / COMMITMENT SECTION -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <!-- Visual grid -->
+          <div class="col-lg-6 animate-on-scroll">
+            <div class="position-relative">
+              <!-- Grid of blocks representing solid foundations -->
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="bg-primary-light p-5 rounded-4 text-center">
+                    <i class="bi bi-globe-americas text-primary-custom fs-1 mb-3"></i>
+                    <h4 class="h5" data-i18n="about-card-1">Zéro Déchet</h4>
+                    <p class="small text-muted mb-0" data-i18n="about-card-1-desc">Objectif enfouissement minimal</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="bg-light p-5 rounded-4 text-center">
+                    <i class="bi bi-shield-fill-check text-secondary fs-1 mb-3"></i>
+                    <h4 class="h5" data-i18n="about-card-2">Traçabilité</h4>
+                    <p class="small text-muted mb-0" data-i18n="about-card-2-desc">Certificats de recyclage officiels</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="bg-light p-5 rounded-4 text-center">
+                    <i class="bi bi-people-fill text-secondary fs-1 mb-3"></i>
+                    <h4 class="h5" data-i18n="about-card-3">Proximité</h4>
+                    <p class="small text-muted mb-0" data-i18n="about-card-3-desc">Réseau de valorisation local</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="bg-primary-custom p-5 rounded-4 text-center text-white">
+                    <i class="bi bi-lightning-charge-fill text-white fs-1 mb-3"></i>
+                    <h4 class="h5 text-white" data-i18n="about-card-4">Réactivité</h4>
+                    <p class="small text-white-50 mb-0" data-i18n="about-card-4-desc">Interventions rapides sous 24h</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Content info -->
+          <div class="col-lg-6 animate-on-scroll delay-200">
+            <span class="section-tag" data-i18n="about-tag">Qui sommes-nous ?</span>
+            <h2 class="mb-4" data-i18n="about-title">Un partenaire engagé pour votre stratégie environnementale</h2>
+            <p class="text-muted mb-4" data-i18n="about-desc">
+              Fondée avec la conviction que chaque déchet cache une valeur inestimable, MACODEL SERVICES sarlu aide les industries, commerces et administrations à structurer des processus de valorisation viables et performants. Basée à Tchitchinouda, à proximité de l'Hôtel Memphis, l'entreprise intervient principalement dans plusieurs quartiers de la ville de Kara et de ses environs.
+            </p>
+            
+            <div class="about-features">
+              <div class="about-feature-item">
+                <i class="bi bi-check-circle-fill about-feature-icon"></i>
+                <div>
+                  <h4 class="about-feature-title" data-i18n="about-f1-title">Audits techniques sur site</h4>
+                  <p class="small text-muted mb-0" data-i18n="about-f1-desc">Nous analysons vos flux sur place pour optimiser le tri dès l'origine.</p>
+                </div>
+              </div>
+              
+              <div class="about-feature-item">
+                <i class="bi bi-check-circle-fill about-feature-icon"></i>
+                <div>
+                  <h4 class="about-feature-title" data-i18n="about-f2-title">Plateforme client dématérialisée</h4>
+                  <p class="small text-muted mb-0" data-i18n="about-f2-desc">Accédez en 1 clic à vos factures, bordereaux de suivi des déchets (BSD) et indicateurs RSE.</p>
+                </div>
+              </div>
+              
+              <div class="about-feature-item">
+                <i class="bi bi-check-circle-fill about-feature-icon"></i>
+                <div>
+                  <h4 class="about-feature-title" data-i18n="about-f3-title">Tarification transparente & optimisée</h4>
+                  <p class="small text-muted mb-0" data-i18n="about-f3-desc">Un modèle basé sur la revente de vos matières premières secondaires triées pour faire baisser votre facture de collecte.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALISATIONS / GALLERY SECTION -->
+    <section class="py-5" id="realisations">
+      <div class="container py-5">
+        <div class="text-center max-width-600 mx-auto mb-5">
+          <span class="section-tag animate-on-scroll" data-i18n="gallery-tag">Galerie Photo</span>
+          <h2 class="section-title animate-on-scroll delay-100" data-i18n="gallery-title">Nos réalisations en images</h2>
+          <p class="text-muted animate-on-scroll delay-200" data-i18n="gallery-desc">
+            Découvrez nos infrastructures de tri, nos conteneurs de tri sélectif et l'équipe de MACODEL SERVICES engagée à Kara.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Item 1: Sorting -->
+          <div class="col-sm-6 col-lg-3 animate-on-scroll">
+            <div class="gallery-card">
+              <img src="assets/images/gallery_sorting.png" alt="Centre de tri MACODEL SERVICES">
+              <div class="gallery-overlay">
+                <div class="gallery-category" data-i18n="gallery-c1">Infrastructures</div>
+                <h3 class="gallery-title" data-i18n="gallery-c1-title">Notre Centre de Tri</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Bins -->
+          <div class="col-sm-6 col-lg-3 animate-on-scroll delay-100">
+            <div class="gallery-card">
+              <img src="assets/images/gallery_bins.png" alt="Bacs de tri écologiques">
+              <div class="gallery-overlay">
+                <div class="gallery-category" data-i18n="gallery-c2">Solutions bureau</div>
+                <h3 class="gallery-title" data-i18n="gallery-c2-title">Bacs Éco-conçus</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Paving -->
+          <div class="col-sm-6 col-lg-3 animate-on-scroll delay-200">
+            <div class="gallery-card">
+              <img src="assets/images/gallery_paving.png" alt="Pavés en plastique recyclé">
+              <div class="gallery-overlay">
+                <div class="gallery-category" data-i18n="gallery-c3">Valorisation</div>
+                <h3 class="gallery-title" data-i18n="gallery-c3-title">Pavés Écologiques</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: Team -->
+          <div class="col-sm-6 col-lg-3 animate-on-scroll delay-300">
+            <div class="gallery-card">
+              <img src="assets/images/gallery_team.png" alt="Équipe MACODEL SERVICES">
+              <div class="gallery-overlay">
+                <div class="gallery-category" data-i18n="gallery-c4">Notre Force</div>
+                <h3 class="gallery-title" data-i18n="gallery-c4-title">Équipe de Terrain</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- INTERACTIVE MAP SECTION (GREEN MAP) -->
+    <section class="py-5 bg-light" id="reseau">
+      <div class="container py-5">
+        <div class="text-center max-width-600 mx-auto mb-5">
+          <span class="section-tag animate-on-scroll" data-i18n="map-tag">Points de Collecte</span>
+          <h2 class="section-title animate-on-scroll delay-100" data-i18n="map-title">Notre Réseau Vert à Kara</h2>
+          <p class="text-muted animate-on-scroll delay-200" data-i18n="map-desc">
+            Retrouvez notre siège et nos principaux bacs de tri et dépôts écologiques déployés pour faciliter le tri sélectif.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-12 animate-on-scroll">
+            <div class="map-container-box">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT & DEVIS SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <!-- Contact info text -->
+          <div class="col-lg-5 animate-on-scroll">
+            <span class="section-tag" data-i18n="contact-tag">Contactez-nous</span>
+            <h2 class="mb-4" data-i18n="contact-title">Prêt à valoriser vos déchets ?</h2>
+            <p class="text-muted mb-5" data-i18n="contact-desc">
+              Demandez un diagnostic gratuit de vos flux de déchets ou un devis personnalisé pour vos collectes régulières. Nos consultants RSE vous répondent sous 24 heures.
+            </p>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div>
+                <div class="contact-info-title" data-i18n="contact-info-1">Siège Social</div>
+                <div class="contact-info-text">Tchitchinouda, près de l'Hôtel Memphis, Kara, Togo</div>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div>
+                <div class="contact-info-title" data-i18n="contact-info-2">Téléphone</div>
+                <div class="contact-info-text" data-i18n="contact-info-2-desc">92 10 38 63 (Lundi au Vendredi, 8h - 18h)</div>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
+              <div>
+                <div class="contact-info-title" data-i18n="nav-contact">Contact</div>
+                <div class="contact-info-text">servicesmacodel@gmail.com</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Form Card -->
+          <div class="col-lg-7 animate-on-scroll delay-200">
+            <div class="contact-card">
+              <h3 class="mb-4 text-center fs-4" data-i18n="form-title">Demande de Diagnostic & Devis</h3>
+              
+              <form id="contact-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label small text-muted" data-i18n="form-name">Nom Complet</label>
+                    <input type="text" id="name" class="form-control form-control-custom" data-i18n-placeholder="form-name-ph" placeholder="Jean Dupont" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="company" class="form-label small text-muted" data-i18n="form-company">Entreprise</label>
+                    <input type="text" id="company" class="form-control form-control-custom" data-i18n-placeholder="form-company-ph" placeholder="Ex: SAS Logistique" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label small text-muted" data-i18n="form-email">Adresse E-mail</label>
+                    <input type="email" id="email" class="form-control form-control-custom" data-i18n-placeholder="form-email-ph" placeholder="nom@entreprise.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label small text-muted" data-i18n="form-phone">Téléphone</label>
+                    <input type="tel" id="phone" class="form-control form-control-custom" data-i18n-placeholder="form-phone-ph" placeholder="06 12 34 56 78">
+                  </div>
+                  <div class="col-12">
+                    <label for="message" class="form-label small text-muted" data-i18n="form-message">Votre Besoin (Types de déchets, volume estimé...)</label>
+                    <textarea id="message" rows="4" class="form-control form-control-custom" data-i18n-placeholder="form-message-ph" placeholder="Décrivez succinctement votre besoin ou vos flux..." required></textarea>
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn btn-primary-custom w-100 py-3" id="form-submit-btn" data-i18n="form-submit">
+                      Envoyer la demande <i class="bi bi-send-fill ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 9. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand column -->
+        <div class="col-lg-4">
+          <div class="navbar-brand text-white mb-3">
+            <i class="bi bi-recycle text-primary-custom fs-3"></i>
+            <span class="text-white">MACODEL</span> SERVICES
+          </div>
+          <p class="small text-white-50" data-i18n="footer-desc">
+            MACODEL SERVICES sarlu simplifie la transition vers l'économie circulaire pour les organisations responsables. Ensemble, donnons une seconde vie à vos ressources.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="footer-social-icon" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="footer-social-icon" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        
+        <!-- Solutions Column -->
+        <div class="col-md-4 col-lg-2 offset-lg-1">
+          <h4 class="footer-title" data-i18n="footer-t1">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="#services" data-i18n="footer-l1">Collecte de Déchets</a></li>
+            <li><a href="#services" data-i18n="footer-l2">Tri & Tri intelligent</a></li>
+            <li><a href="#services" data-i18n="footer-l3">Valorisation Matière</a></li>
+            <li><a href="#services" data-i18n="footer-l4">Audit RSE</a></li>
+          </ul>
+        </div>
+        
+        <!-- Links Column -->
+        <div class="col-md-4 col-lg-2">
+          <h4 class="footer-title" data-i18n="footer-t2">Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="#impact" data-i18n="nav-impact">Calculateur d'Impact</a></li>
+            <li><a href="#about" data-i18n="nav-about">À Propos</a></li>
+
+            <li><a href="#contact" data-i18n="nav-contact">Contact & Devis</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact column -->
+        <div class="col-md-4 col-lg-3">
+          <h4 class="footer-title" data-i18n="footer-t3">Contact rapide</h4>
+          <p class="small text-white-50 mb-2">
+            <i class="bi bi-geo-alt-fill text-primary-custom me-2"></i> Tchitchinouda, près de l'Hôtel Memphis, Kara, Togo
+          </p>
+          <p class="small text-white-50 mb-2">
+            <i class="bi bi-telephone-fill text-primary-custom me-2"></i> 92 10 38 63
+          </p>
+          <p class="small text-white-50">
+            <i class="bi bi-envelope-fill text-primary-custom me-2"></i> servicesmacodel@gmail.com
+          </p>
+        </div>
+      </div>
+      
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p class="mb-0" data-i18n="footer-copy">&copy; 2026 MACODEL SERVICES sarlu. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6Rz5YN5757LfdLD69Np5MTK85R0FHE193M6HsL571B696v2g3r9g7U4m7357hZ4" crossorigin="anonymous"></script>
+  
+  <!-- Leaflet JS for Interactive Map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>
